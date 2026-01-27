@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博多ラーペン - 商品概要</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            color: #2c1810;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            box-shadow: 0 4px 6px rgba(211, 47, 47, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🍜🍜🍜';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.1;
+            top: 10px;
+            left: 30px;
+        }
+
+        header::after {
+            content: '🌸🌸🌸';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.1;
+            bottom: 10px;
+            right: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1::before {
+            content: '🎁 ';
+        }
+
+        header h1::after {
+            content: ' 🎁';
+        }
+
+        header p {
+            margin: 0.5em 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #b71c1c;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '🏮';
+            position: fixed;
+            font-size: 6em;
+            opacity: 0.08;
+            top: 180px;
+            right: 40px;
+            z-index: 0;
+        }
+
+        .container::after {
+            content: '🍜';
+            position: fixed;
+            font-size: 5em;
+            opacity: 0.08;
+            bottom: 120px;
+            left: 40px;
+            z-index: 0;
+        }
+
+        .overview {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+            text-align: center;
+        }
+
+        .overview h2 {
+            color: #d32f2f;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .overview p {
+            color: #5a3825;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #fff 0%, #ffe0e0 100%);
+            border: 2px solid #ffcdd2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .variation {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 6px rgba(211, 47, 47, 0.2);
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        footer .footer-links {
+            margin: 20px 0;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>博多ラーペン</h1>
+        <p>博多の味をスティック状スナックで！</p>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">トップ</a>
+        <a href="{% url 'overview' %}">商品概要</a>
+        <a href="{% url 'list' %}">商品一覧</a>
+        <a href="{% url 'contact' %}">お問い合わせ</a>
+    </nav>
+    <div class="container">
+        <div class="overview">
+            <h2>🌟 商品概要</h2>
+            <div class="feature-box">
+                <p><strong>博多ラーペン</strong>は、<span class="highlight">博多の名物ラーメン</span>をモチーフにしたスティック状スナックです。</p>
+            </div>
+
+            <p><span class="highlight">一口で博多ラーメンの味わい</span>を楽しめ、<strong>観光客や地元の方に人気のお土産</strong>です。</p>
+
+            <div class="feature-box">
+                <p><strong>🎨 バリエーション</strong></p>
+                <p>
+                    <span class="variation">🍜 とんこつラーメン味</span>
+                    <span class="variation">🧂 替え玉塩とんこつ味</span>
+                    <span class="variation">🌶️ 明太バター味</span>
+                </p>
+            </div>
+
+            <p>パッケージは<span class="highlight">ラーメン丼風</span>で、<strong>博多らしいデザイン</strong>です。</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="{% url 'index' %}">トップ</a>
+            <a href="{% url 'list' %}">商品一覧</a>
+            <a href="{% url 'overview' %}">商品概要</a>
+            <a href="{% url 'contact' %}">お問い合わせ</a>
+        </div>
+        <p>🍜 博多ラーペン - 博多の味を手軽に楽しむ 🍜</p>
+        <p>&copy; 2026 Hakata Ramen. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

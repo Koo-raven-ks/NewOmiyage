@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博多ラーペン - {{ omiyage.name }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            color: #2c1810;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            text-align: center;
+            padding: 2em 1em;
+            box-shadow: 0 4px 6px rgba(211, 47, 47, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🍥🍥🍥';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.1;
+            top: 5px;
+            left: 20px;
+        }
+
+        header::after {
+            content: '🥢🥢🥢';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.1;
+            bottom: 5px;
+            right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1::before {
+            content: '📦 ';
+        }
+
+        header p {
+            margin: 0.5em 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #b71c1c;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '本場の味';
+            position: absolute;
+            top: 50px;
+            right: -10px;
+            background: #d32f2f;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.8em;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.4);
+            transform: rotate(15deg);
+            z-index: 10;
+            border: 3px solid white;
+        }
+
+        .container::after {
+            content: '🏮';
+            position: fixed;
+            font-size: 5em;
+            opacity: 0.08;
+            bottom: 100px;
+            left: 30px;
+            z-index: 0;
+        }
+
+        .detail {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .detail img {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1.3;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        .detail img.larger {
+            transform: scale(1.05);
+        }
+
+        .detail h2 {
+            color: #d32f2f;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        .detail p {
+            color: #5a3825;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #d32f2f;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 6px rgba(211, 47, 47, 0.2);
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        footer .footer-links {
+            margin: 20px 0;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>博多ラーペン</h1>
+        <p>博多の味をスティック状スナックで！</p>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">トップ</a>
+        <a href="{% url 'overview' %}">商品概要</a>
+        <a href="{% url 'list' %}">商品一覧</a>
+        <a href="{% url 'contact' %}">お問い合わせ</a>
+    </nav>
+    <div class="container">
+        <div class="detail">
+            {% if omiyage.image %}
+            <img src="{{ omiyage.image.url }}" alt="{{ omiyage.name }}">
+            {% else %}
+            <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image">
+            {% endif %}
+            <h2>{{ omiyage.name }}</h2>
+            <p><strong>味:</strong> {{ omiyage.taste }}</p>
+            <p>{{ omiyage.description }}</p>
+            <p class="price">価格: {{ omiyage.price }}円</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="{% url 'index' %}">トップ</a>
+            <a href="{% url 'list' %}">商品一覧</a>
+            <a href="{% url 'overview' %}">商品概要</a>
+            <a href="{% url 'contact' %}">お問い合わせ</a>
+        </div>
+        <p>🍜 博多ラーペン - 博多の味を手軽に楽しむ 🍜</p>
+        <p>&copy; 2026 Hakata Ramen. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -137,7 +137,3 @@ if not DEBUG:
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Media files - Serve from static directory for Render compatibility
-MEDIA_URL = "/static/omiyage_images/"
-MEDIA_ROOT = BASE_DIR / "sinsaKadai" / "static" / "omiyage_images"

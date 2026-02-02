@@ -42,5 +42,4 @@ urlpatterns = [
     path("sinsaKadai/", include("sinsaKadai.urls")),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Remove DEBUG check for media files since they're now in static

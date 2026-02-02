@@ -135,6 +135,6 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Media files
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# Media files - Serve from static directory for Render compatibility
+MEDIA_URL = "/static/omiyage_images/"
+MEDIA_ROOT = BASE_DIR / "sinsaKadai" / "static" / "omiyage_images"

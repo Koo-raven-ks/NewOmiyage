@@ -318,7 +318,8 @@
             {% for omiyage in omiyages %}
             <div class="product">
                 {% if omiyage.image %}
-                <img src="{{ omiyage.image.url }}" alt="{{ omiyage.name }}" {% if '豚骨味' in omiyage.taste %}class="larger"{% endif %}>
+                <img src="{{ omiyage.image.url }}" alt="{{ omiyage.name }}" {% if '豚骨味' in omiyage.taste
+                    %}class="larger" {% endif %}>
                 {% else %}
                 <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image">
                 {% endif %}

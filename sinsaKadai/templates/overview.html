@@ -193,6 +193,57 @@
             opacity: 1;
             text-decoration: underline;
         }
+
+        /* ページ遷移アニメーション - コンテンツだけ */
+        .container {
+            animation: contentFadeIn 0.5s ease-in;
+        }
+
+        @keyframes contentFadeIn {
+            from {
+                filter: blur(5px);
+                opacity: 0.5;
+            }
+
+            to {
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes contentFadeOut {
+            from {
+                filter: blur(0px);
+                opacity: 1;
+            }
+
+            to {
+                filter: blur(10px);
+                opacity: 0.3;
+            }
+        }
+
+        .content-fade-out {
+            animation: contentFadeOut 0.5s ease-out forwards;
+        }
+
+        /* ヘッダーコンテンツ用アニメーション */
+        @keyframes headerContentFadeOut {
+            from {
+                opacity: 1;
+                filter: blur(0px);
+            }
+
+            to {
+                opacity: 0;
+                filter: blur(5px);
+            }
+        }
+
+        .header-content-fade-out h1,
+        .header-content-fade-out p {
+            animation: headerContentFadeOut 0.5s ease-out forwards;
+        }
     </style>
 </head>
 
@@ -238,6 +289,42 @@
         <p>🍜 博多ラーペン - 博多の味を手軽に楽しむ 🍜</p>
         <p>&copy; 2026 Hakata Ramen. All rights reserved.</p>
     </footer>
+
+    <script>
+        // ページ遷移アニメーション
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a[href]');
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // 外部リンクや同じページへのリンク、アンカーリンクは除外
+                    if (this.hostname !== window.location.hostname ||
+                        this.href.includes('#') ||
+                        this.target === '_blank') {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    // コンテンツ要素フェードアウトアニメーション実行
+                    const container = document.querySelector('.container');
+                    const header = document.querySelector('header');
+
+                    if (container) {
+                        container.classList.add('content-fade-out');
+                    }
+                    if (header) {
+                        header.classList.add('header-content-fade-out');
+                    }
+
+                    // アニメーション完了後にページ遷移
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

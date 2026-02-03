@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -262,7 +263,7 @@
     <div class="container">
         <div class="detail">
             {% if omiyage.image %}
-            <img src="{{ omiyage.image.url }}" alt="{{ omiyage.name }}">
+            <img src="{% static 'omiyage_images/' %}{{ omiyage.image.name }}" alt="{{ omiyage.name }}">
             {% else %}
             <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image">
             {% endif %}
